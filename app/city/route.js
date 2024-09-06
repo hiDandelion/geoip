@@ -16,8 +16,8 @@ export async function GET(request) {
     }
 
     let localeForLookup = "en";
-    if (locale == "ja") localeForLookup = "ja";
-    if (locale == "zh-Hans") localeForLookup = "zh-CN";
+    if (locale.startsWith("ja") === true) localeForLookup = "ja";
+    if (locale.startsWith("zh-Hans") === true) localeForLookup = "zh-CN";
     
     const { succeeded, result, error } = await lookupIP(IP, localeForLookup);
 
